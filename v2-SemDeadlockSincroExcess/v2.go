@@ -41,12 +41,6 @@ func filosofo(id int) {
 		// pega garfos
 		antes := time.Now()
 
-		// Sincronização excessiva: um mutex global envolve todo a rotina
-		// "pegar garfos -> comer -> soltar garfos". Como só um filósofo
-		// passa por vez, nunca tem espera circular (sem deadlock),
-		// mas também nunca há dois filósofos comendo juntos, mesmo que
-		// não sejam vizinhos e não disputem nenhum garfo.
-
 		mesa.Lock()
 		if mostrarExecucao {
 			fmt.Println("F", id+1, "entrou na mesa e quer os garfos", esquerda+1, "e", direita+1)
